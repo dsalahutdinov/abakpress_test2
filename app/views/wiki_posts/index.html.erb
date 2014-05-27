@@ -1,0 +1,9 @@
+<h1>Listing wiki_posts</h1>
+
+ <%= link_to("Добавить", "/add") %>
+<% for @wiki_post in @wiki_posts %>
+<div>
+  
+ <%= render :partial => "post", :locals => {:wiki_post => @wiki_post }%>
+</div>
+<% end %>

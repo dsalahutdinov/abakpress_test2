@@ -1,0 +1,15 @@
+
+  <%= link_to(wiki_post.title,  wiki_post.get_path)%>
+  [
+  <%= link_to("Добавить", wiki_post.get_path + "/add") %>,
+  <%= link_to("Редактировать", wiki_post.get_path + "/edit") %>,
+  ]
+  <br/>
+
+<% if wiki_post.children.count > 0 %>
+<div style="padding-left: 2em;">
+  <% for wp in wiki_post.children %>
+    <%= render :partial => "post", :locals => {:wiki_post => wp }%>
+  <% end %>
+</div>
+<% end %>

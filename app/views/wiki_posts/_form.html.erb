@@ -1,0 +1,29 @@
+<%= form_for(@wiki_post, :url => @wiki_post.new_record? ? @wiki_post.get_path + "/create" : @wiki_post.get_path) do |f| %>
+  <% if @wiki_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wiki_post.errors.count, "error") %> prohibited this wiki_post from being saved:</h2>
+
+      <ul>
+      <% @wiki_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :raw_text %><br />
+    <%= f.text_area :raw_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
